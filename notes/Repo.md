@@ -1,8 +1,6 @@
-# Ecto
+# Repo
 
-## Repo
-
-### Insert
+## Insert
 You can use a list of keyword lists or a list of maps
 ```elixir
 Repo.insert_all("artists", [[name: "John Coltrane"]])
@@ -11,7 +9,7 @@ Repo.insert_all("artists", [%{name: "John Coltrane"}, %{name: "Other Name"}])
 Repo.insert_all("artists", [[name: "Sonny Rollins", inserted_at: DateTime.utc_now()]])
 ```
 
-### Query
+## Query
 `select` is needed when not using schemas
 ```elixir
 Repo.all(from a in "artists", select: a.name)
@@ -19,7 +17,7 @@ Repo.all(from a in "artists", select: [id: a.id, name: a.name])
 Repo.all(from a in "artists", select: %{id: a.id, name: a.name})
 ```
 
-### Update
+## Update
 Options available are `set`, `inc`,
 `push`, `pull` are available to add and remove elements to array columns
 
@@ -31,7 +29,7 @@ Repo.update_all("tracks", inc: [number_of_plays: -1])
 Repo.all(from t in "tracks", select: [t.title, t.duration, t.index, t.number_of_plays])
 ```
 
-### Delete
+## Delete
 ```elixir
 Repo.delete_all("tracks")
 ```
@@ -43,20 +41,20 @@ we ask the database to return. The default is nil. ex: {31, nil}
 Repo.insert_all("artists", [%{name: "Max Roach"}, %{name: "Art Blakey"}], returning: [:id, :name])
 ```
 
-### Queries
+## Queries
 You can use sql with `Ecto.Adapters.SQL.query` or it's undocumented short cut `Repo.query`
 ```elixir
 Ecto.Adapters.SQL.query(Repo, "select * from artists")
 Repo.query("select * from artists")
 ```
 
-### Aggregates
+## Aggregates
 Options are `count`, `avg`, `min`, `max`, `sum`
 ```elixir
 Repo.aggregate("albums", :count, :id)
 ```
 
-### Customizing Your Repo
+## Customizing Your Repo
 You can add functions to your Repo to add custom behaviour
 ```elixir
 # add to Repo...

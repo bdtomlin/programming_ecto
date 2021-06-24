@@ -10,7 +10,8 @@
                         'Elixir.MusicDB.Genre','Elixir.MusicDB.Log',
                         'Elixir.MusicDB.Note','Elixir.MusicDB.Repo',
                         'Elixir.MusicDB.SoloArtist','Elixir.MusicDB.Track',
-                        'Elixir.MusicDB.TrackEmbed','Elixir.SearchEngine']},
+                        'Elixir.MusicDB.TrackEmbed','Elixir.RepoFunctions',
+                        'Elixir.SearchEngine']},
               {registered,[]},
               {vsn,"0.1.0"},
               {mod,{'Elixir.MusicDB.Application',[]}}]}.
