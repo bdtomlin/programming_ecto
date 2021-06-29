@@ -6,7 +6,7 @@
 # We make no guarantees that this code is fit for any purpose.
 # Visit http://www.pragmaticprogrammer.com/titles/wmecto for more book information.
 # ---
-defmodule MusicDB.Artist do
+defmodule MusicDB.Music.Artist do
   use Ecto.Schema
   import Ecto.Changeset
   alias MusicDB.{Artist, Album}

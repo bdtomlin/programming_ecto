@@ -6,9 +6,10 @@
 # We make no guarantees that this code is fit for any purpose.
 # Visit http://www.pragmaticprogrammer.com/titles/wmecto for more book information.
 # ---
-defmodule MusicDB.Album do
+defmodule MusicDB.Music.Album do
   use Ecto.Schema
   import Ecto.Changeset
+  import Ecto.Query
   alias MusicDB.{Artist, Track, Genre}
 
   schema "albums" do
@@ -31,5 +32,9 @@ defmodule MusicDB.Album do
     |> cast(params, [:title])
     |> validate_required([:title])
     |> validate_length(:title, min: 100)
+  end
+
+  def search(string) do
+    from(album in Album, where: ilike(album.title, ^"%#{string}%"))
   end
 end
